@@ -1,0 +1,6 @@
+[user]
+	name = Avery Bobbitt
+	email = avery@bobbitt.dev
+
+[init]
+	defaultBranch = master

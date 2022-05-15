@@ -1,0 +1,52 @@
+;; set up packages
+(require 'package)
+ 
+(add-to-list 'package-archives
+	     '("melpa" . "http://melpa.org/packages/")t)
+ 
+(package-initialize)
+
+(unless (package-installed-p 'use-package)
+(package-refresh-contents)
+(package-install 'use-package))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(auth-source-save-behavior nil)
+ '(custom-safe-themes
+   '("0ab2aa38f12640ecde12e01c4221d24f034807929c1f859cbca444f7b0a98b3a" default))
+ '(package-selected-packages '(## magit dracula-theme use-package)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+;; set theme
+(load-theme 'dracula t)
+
+;; clean up interface
+(tool-bar-mode -1)
+(tooltip-mode -1)
+(menu-bar-mode -1)
+
+;; improve scrolling
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+(setq mouse-wheel-progressive-speed nil)
+(setq mouse-wheel-follow-mouse 't)
+(setq scroll-step 1)
+(setq use-dialog-box nil)
+
+;; set tab settings
+(setq-default tab-width 2)
+(setq-default indent-tabs-mode nil)
+
+;; save all autosave/backup files to /tmp
+(setq backup-directory-alist
+  `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+  `((".*" ,temporary-file-directory t)))

@@ -1,0 +1,43 @@
+{
+    "api_key_omdb": null,
+    "api_key_tmdb": null,
+    "api_key_tvdb": null,
+    "api_key_tvmaze": null,
+    "batch": false,
+    "episode_api": "tvmaze",
+    "episode_directory": null,
+    "episode_format": "{series} - s{season:02}e{episode:02} - {title}.{extension}",
+    "hits": 5,
+    "ignore": [
+        ".*sample.*",
+        "^RARBG.*"
+    ],
+    "language": null,
+    "lower": false,
+    "mask": [
+        ".avi",
+        ".m4v",
+        ".mp4",
+        ".mkv",
+        ".ts",
+        ".wmv",
+        ".srt",
+        ".idx",
+        ".sub"
+    ],
+    "movie_api": "tmdb",
+    "movie_directory": null,
+    "movie_format": "{name} ({year}).{extension}",
+    "no_guess": true,
+    "no_overwrite": false,
+    "no_style": false,
+    "recurse": false,
+    "replace_after": {
+        "&": "and",
+        ";": ",",
+        "@": "at"
+    },
+    "replace_before": {},
+    "scene": false,
+    "verbose": false
+}

@@ -1,0 +1,38 @@
+services:
+  caddy:
+    image: caddy
+    container_name: caddy
+    restart: unless-stopped
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./caddy/data:/data
+      - ./caddy/config:/config
+      - ./caddy/web:/srv
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile
+
+  portainer:
+    image: portainer/portainer-ce
+    container_name: portainer
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./portainer:/data
+
+  vpn:
+    image: bubuntux/nordvpn
+    container_name: vpn
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - USER=jonah@bobbitt.dev
+      - PASS=3s0m0ZOsieM12arQ8q6P7TkRE9crXD
+      - CONNECT=United_States
+      - TECHNOLOGY=NordLynx
+      - NETWORK=192.168.1.0/24
+
+networks: 
+  default: 
+    name: default-ext
