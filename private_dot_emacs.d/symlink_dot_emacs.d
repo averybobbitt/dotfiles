@@ -1,1 +1,0 @@
-/home/avery/.emacs.d
