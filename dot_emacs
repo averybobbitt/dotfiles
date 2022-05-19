@@ -1,29 +1,25 @@
 ;; set up packages
 (require 'package)
- 
-(add-to-list 'package-archives
-	           '(("melpa" . "http://melpa.org/packages/")
-              ("elpa" . "http://tromey.com/elpa/")
-              ("gnu" . "http://elpa.gnu.org/packages/")
-              ("marmalade" . "http://marmalade-repo.org/packages/")))
- 
-(setq package-list '(usepackage dracula-theme magit))
+
+(setq package-archives
+      '(("melpa" . "https://melpa.org/packages/")
+	("melpa-stable" . "https://stable.melpa.org/packages/")
+	("gnu" . "https://elpa.gnu.org/packages/")))
 
 (package-initialize)
 
-(dolist (package package-list)
-  (unless (package-installed-p 'use-package)
-    (package-refresh-contents)
-    (package-install 'use-package))
+(unless package-archive-contents
+  (package-refresh-contents))
 
 ;; set variables
 (custom-set-variables
  '(auth-source-save-behavior nil)
  '(custom-safe-themes
    '("0ab2aa38f12640ecde12e01c4221d24f034807929c1f859cbca444f7b0a98b3a" default))
- '(package-selected-packages '(## magit dracula-theme use-package)))
-(custom-set-faces
- )
+ '(package-selected-packages '(magit dracula-theme use-package)))
+
+;; install custom packages
+(package-install-selected-packages)
 
 ;; set theme
 (load-theme 'dracula t)
