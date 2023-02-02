@@ -1,0 +1,23 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# Set prompt
+if [ -f $HOME/.prompt ]; then
+        . $HOME/.prompt
+fi
+
+# User specific aliases and functions
+alias ls='ls --color=auto'
+alias la='ls -A --color=auto'
+alias l='ls -lA --color=auto'
+alias ll='ls -l --color=auto'
+alias fixperms='/home/nlt/PROGLANG/Homework/Grades/fix_perms.csh'
+#alias gitup='git add . && git commit && git push'
+#alias test='/home/levyj63/LABTECH/Homework/test_scripts/test_program'
+#alias grade='/home/levyj63/LABTECH/Homework/git_grading/grade -b'
+#alias submit='git add . && git commit -m "Ready for Grading" ; git tag -a finished -m "Ready for Grading" && git push --follow-tags'
+#alias format='astyle -cpfHs4 -xC75 --style=otbs'
