@@ -40,11 +40,10 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 # export LANG=en_US.UTF-8
 # export ARCHFLAGS="-arch x86_64"
-export PATH="$HOME/.jenv/bin:$PATH"
 export VISUAL="emacs"
 export EDITOR="$VISUAL"
 
-alias caddy="docker exec -w /etc/caddy caddy caddy"
+alias caddy="docker exec -w /etc/caddy bdev-caddy caddy"
 alias dcup="docker-compose up -d"
 alias dcdown="docker-compose down"
 alias dcrestart="docker-compose down && docker-compose up -d"
@@ -61,5 +60,3 @@ _gitignoreio () {
 }
 
 compdef _gitignoreio git ignore
-
-eval "$(jenv init -)"
