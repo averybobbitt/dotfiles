@@ -3,8 +3,8 @@
 
 (setq package-archives
       '(("melpa" . "https://melpa.org/packages/")
-	("melpa-stable" . "https://stable.melpa.org/packages/")
-	("gnu" . "https://elpa.gnu.org/packages/")))
+	      ("melpa-stable" . "https://stable.melpa.org/packages/")
+	      ("gnu" . "https://elpa.gnu.org/packages/")))
 
 (package-initialize)
 
@@ -37,7 +37,7 @@
 (setq use-dialog-box nil)
 
 ;; set tab settings
-(setq-default tab-width 2)
+(setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
 
 ;; line wrapping
