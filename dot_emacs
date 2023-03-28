@@ -16,8 +16,12 @@
  '(auth-source-save-behavior nil)
  '(custom-safe-themes
    '("0ab2aa38f12640ecde12e01c4221d24f034807929c1f859cbca444f7b0a98b3a" default))
- '(package-selected-packages '(magit dracula-theme use-package)))
+ '(package-selected-packages '(ada-mode magit dracula-theme use-package))
+ '(warning-suppress-types
+   '((comp)
+     (ada))))
 
+ 
 ;; install custom packages
 (package-install-selected-packages)
 
