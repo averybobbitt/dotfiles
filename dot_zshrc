@@ -27,7 +27,7 @@ DISABLE_UPDATE_PROMPT="true"
 GITSTATUS_LOG_LEVEL=DEBUG
 ZSH_COMPDUMP="$ZSH_CACHE_DIR/.zcompdump"
 
-plugins=(git gitfast vscode ufw systemd npm nvm command-not-found colored-man-pages docker-compose docker)
+plugins=(git gitfast command-not-found colored-man-pages docker-compose docker)
 
 [[ ! -f $HOME/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -48,6 +48,7 @@ fi
 export PATH="$PATH:/home/avery/.spicetify"
 export VISUAL="emacs"
 export EDITOR="$VISUAL"
+export NVM_DIR="$HOME/.nvm"
 
 alias caddy="docker exec -w /etc/caddy bdev-caddy caddy"
 alias dcup="docker-compose up -d"
@@ -66,3 +67,6 @@ _gitignoreio () {
 }
 
 compdef _gitignoreio git ignore
+
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
