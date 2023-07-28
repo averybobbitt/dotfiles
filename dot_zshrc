@@ -42,6 +42,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     eval "$(jenv init -)"
 fi
 
+eval "$(rbenv init - zsh)"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 # export LANG=en_US.UTF-8
 # export ARCHFLAGS="-arch x86_64"
