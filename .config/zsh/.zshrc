@@ -23,13 +23,20 @@ source "$ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "$ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 # override default tools for better alternatives
-alias ls="exa"
-alias cat="batcat"
+if ! [ -x "$(command -v exa)" ]; then
+    alias ls="exa"
+fi
+
+if ! [ -x "$(command -v batcat)" ]; then
+    alias cat="batcat"
+else
+    alias cat="bat"
+fi
 
 # aliases
-alias l="exa -al"
-alias ll="exa -algh"
-alias lt="exa -lT"
+alias l="ls -al"
+alias ll="ls -algh"
+alias lt="ls -lT"
 alias zshrc="${=EDITOR} ${ZDOTDIR:-$HOME}/.zshrc"
 alias zshenv="${=EDITOR} ${ZDOTDIR:-$HOME}/.zshenv"
 alias zprofile="${=EDITOR} ${ZDOTDIR:-$HOME}/.zprofile"
