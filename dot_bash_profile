@@ -10,6 +10,6 @@ export VISUAL=emacs
 export EDITOR='$VISUAL'
 #export lec='/home/levyj63/LABTECH/TR/'
 #export hw='/home/levyj63/LABTECH/Homework/bobbit82/'
-export hw='/home/nlt/PROGLANG/Homework/bobbit82/'
+#export hw='/home/nlt/PROGLANG/Homework/bobbit82/'
 
 shopt -s direxpand

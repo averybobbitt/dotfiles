@@ -43,12 +43,13 @@ source $ZSH/oh-my-zsh.sh
 export VISUAL="emacs"
 export EDITOR="$VISUAL"
 
-alias caddy="docker exec -w /etc/caddy bdev-caddy caddy"
+alias caddy="docker exec -w /etc/caddy backend-caddy caddy"
 alias dcup="docker-compose up -d"
 alias dcdown="docker-compose down"
 alias dcrestart="docker-compose down && docker-compose up -d"
 alias dlog="docker logs"
 alias cdm="cd /mnt/hdd/merged/raw"
+alias help="python /home/avery/.local/bin/help.py"
 
 _gitignoreio_get_command_list() {
   curl -sL https://www.toptal.com/developers/gitignore/api/list | tr "," "\n"
