@@ -23,3 +23,6 @@ export PYENV_ROOT="$HOME/.pyenv"
 
 # nvm
 export NVM_DIR="$HOME/.config/nvm"
+
+# docker
+export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"

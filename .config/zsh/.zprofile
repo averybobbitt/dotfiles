@@ -18,5 +18,3 @@ source "$HOME/.cargo/env"
 # initialize go
 export PATH="/usr/local/go/bin:$PATH"
 
-# set docker config path
-export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
