@@ -1,0 +1,21 @@
+# This is Git's per-user configuration file.
+[user]
+        name = Avery Bobbitt
+        email = bobbit82@rowan.edu
+        
+[credential]
+        interactive = false
+        modalPrompt = false
+
+[credential "https://stash.rowan.edu"]
+        provider = bitbucket
+        username = bobbit82
+        
+[credential "https://git.bobbitt.dev"]
+        provider = generic
+        username = avery
+
+[push]
+  autoSetupRemote = true
+[init]
+	defaultBranch = main

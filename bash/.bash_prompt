@@ -1,0 +1,50 @@
+#┏┓━━━━━━━━━━━┏┓━━━━━━━━━━━━━━━━━━━━━━━━━━┏┓━
+#┃┃━━━━━━━━━━━┃┃━━━━━━━━━━━━━━━━━━━━━━━━━┏┛┗┓
+#┃┗━┓┏━━┓━┏━━┓┃┗━┓━━━━┏━━┓┏━┓┏━━┓┏┓┏┓┏━━┓┗┓┏┛
+#┃┏┓┃┗━┓┃━┃━━┫┃┏┓┃━━━━┃┏┓┃┃┏┛┃┏┓┃┃┗┛┃┃┏┓┃━┃┃━
+#┃┗┛┃┃┗┛┗┓┣━━┃┃┃┃┃━━━━┃┗┛┃┃┃━┃┗┛┃┃┃┃┃┃┗┛┃━┃┗┓
+#┗━━┛┗━━━┛┗━━┛┗┛┗┛━━━━┃┏━┛┗┛━┗━━┛┗┻┻┛┃┏━┛━┗━┛
+#━━━━━━━━━━━━━━━━━━━━━┃┃━━━━━━━━━━━━━┃┃━━━━━━
+#━━━━━━━━━━━━━━━━━━━━━┗┛━━━━━━━━━━━━━┗┛━━━━━━
+
+blk="\[\e[0;30m\]"
+red="\[\e[0;31m\]"
+grn="\[\e[0;32m\]"
+ylw="\[\e[0;33m\]"
+blu="\[\e[0;34m\]"
+pur="\[\e[0;35m\]"
+cyn="\[\e[0;36m\]"
+wht="\[\e[0;37m\]"
+
+bblk="\[\e[1;30m\]"
+bred="\[\e[1;31m\]"
+bgrn="\[\e[1;32m\]"
+bylw="\[\e[1;33m\]"
+bblu="\[\e[1;34m\]"
+bpur="\[\e[1;35m\]"
+bcyn="\[\e[1;36m\]"
+bwht="\[\e[1;37m\]"
+
+clr="\[\e[0m\]"
+
+function git_dirty() {
+  #[[ $(git status --porcelain 2> /dev/null) != "" ]] && echo " *"
+  [[ $(git status --porcelain 2> /dev/null | awk '$1 == "??"' | wc -l) != "0" ]] && echo -n " ?"
+  [[ $(git status --porcelain 2> /dev/null | awk '$1 == "A"' | wc -l) != "0" ]] && echo -n " +" 
+  [[ $(git status --porcelain 2> /dev/null | awk '$1 == "D"' | wc -l) != "0" ]] && echo -n " -"
+}
+
+function git_branch() {
+  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ \1/'
+}
+
+function set_virtualenv () {
+  if [[ -z "$VIRTUAL_ENV" ]]; then
+      echo ""
+  else
+      echo "[`basename \"$VIRTUAL_ENV\"`] "
+  fi
+}
+
+update_prompt() { PS1="\n${ylw}$(set_virtualenv)${clr}${bcyn}\u${clr}@\h ${bcyn}[${clr}\w${grn}$(git_branch)$(git_dirty)${clr}${bcyn}]: ${clr}" ; }
+PROMPT_COMMAND=update_prompt
