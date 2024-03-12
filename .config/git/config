@@ -6,6 +6,8 @@
 [credential]
     interactive = false
     modalPrompt = false
+    helper = /usr/local/bin/git-credential-manager
+    credentialStore = plaintext
 
 [credential "https://stash.rowan.edu"]
     provider = bitbucket
