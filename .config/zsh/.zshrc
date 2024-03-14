@@ -23,13 +23,13 @@ source "$ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "$ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
 # override default tools for better alternatives
-if [ -x "$(command -v exa)" ]; then
-    alias ls="exa"
+if [ -x "$(which eza)" ]; then
+    alias ls="eza"
 fi
 
-if [ -x "$(command -v batcat)" ]; then
+if [ -x "$(which batcat)" ]; then
     alias cat="batcat"
-elif [ -x "$(command -v bat)" ]; then
+elif [ -x "$(which bat)" ]; then
     alias cat="bat"
 fi
 
