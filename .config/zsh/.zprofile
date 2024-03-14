@@ -7,6 +7,9 @@
 # load local binaries to PATH
 export PATH="$HOME/.local/bin:$PATH"
 
+# load zsh functions
+[ -s "$ZDOTDIR/.zfunc" ] && source "$ZDOTDIR/.zfunc"
+
 # initialize pyenv
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
@@ -21,5 +24,3 @@ source "$HOME/.cargo/env"
 # initialize go
 export PATH="/usr/local/go/bin:$PATH"
 
-# initialize git credential manager
-export GCM_PLAINTEXT_STORE_PATH="$XDG_CONFIG_HOME/git/credentials"

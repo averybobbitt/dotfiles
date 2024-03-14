@@ -1,0 +1,36 @@
+# .zfunc
+# zsh functions for use in other files
+
+function yadm_status {
+    local branch_name
+    branch_name=$(yadm rev-parse --abbrev-ref HEAD 2>/dev/null)
+    
+    if [ -n "$branch_name" ]; then
+        echo "Checking status of branch $branch_name..."
+        
+        # Check if local branch is ahead or behind remote branch
+        local_status=$(yadm status -sb | grep -E "^## $branch_name\.\.\..+")
+        
+        if [ -n "$local_status" ]; then
+            ahead_behind=$(echo "$local_status" | sed -E "s/^## $branch_name\.\.\.([0-9]+),?([0-9]+)?.*/\1 ahead, \2 behind/")
+            echo "Local branch is $ahead_behind of remote."
+        else
+            echo "Local branch is up to date with remote."
+        fi
+        
+        # Check if there are local changes
+        if ! yadm diff --quiet --exit-code; then
+            echo "Local changes exist."
+        else
+            echo "No local changes."
+        fi
+        
+        # Check if there are changes staged for commit
+        if [ -n "$(yadm diff --cached --exit-code)" ]; then
+            echo "Changes staged for commit."
+        else
+            echo "No changes staged for commit."
+        fi
+    fi
+}
+

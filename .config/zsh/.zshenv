@@ -26,3 +26,6 @@ export NVM_DIR="$XDG_CONFIG_HOME/nvm"
 
 # docker
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
+
+# git credential manager
+export GCM_PLAINTEXT_STORE_PATH="$XDG_CONFIG_HOME/git/credentials"
