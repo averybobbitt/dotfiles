@@ -25,6 +25,8 @@ source "$ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 # override default tools for better alternatives
 if [ -x "$(which eza)" ]; then
     alias ls="eza"
+elif [ -x "$(which exa)" ]; then
+    alias ls="exa"
 fi
 
 if [ -x "$(which batcat)" ]; then
