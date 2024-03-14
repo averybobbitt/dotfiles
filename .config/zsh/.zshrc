@@ -35,7 +35,7 @@ fi
 
 # aliases
 alias l="ls -al"
-alias ll="ls -algh"
+alias ll="ls -algh --icons"
 alias lt="ls -lT"
 alias zshrc="${=EDITOR} ${ZDOTDIR:-$HOME}/.zshrc"
 alias zshenv="${=EDITOR} ${ZDOTDIR:-$HOME}/.zshenv"

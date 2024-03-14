@@ -22,7 +22,7 @@ export SAVEHIST=10000
 export PYENV_ROOT="$HOME/.pyenv"
 
 # nvm
-export NVM_DIR="$HOME/.config/nvm"
+export NVM_DIR="$XDG_CONFIG_HOME/nvm"
 
 # docker
 export DOCKER_CONFIG="$XDG_CONFIG_HOME/docker"
