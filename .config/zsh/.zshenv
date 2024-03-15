@@ -9,7 +9,7 @@ export XDG_DATA_HOME="$XDG_CONFIG_HOME/local/share"
 export XDG_CACHE_HOME="$XDG_CONFIG_HOME/cache"
 
 # default overrides
-export EDITOR="emacs"
+export EDITOR="nvim"
 export VISUAL="$EDITOR"
 
 # zsh settings
