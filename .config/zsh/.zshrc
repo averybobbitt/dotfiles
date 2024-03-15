@@ -2,6 +2,10 @@
 # loaded on shell start, reloaded every time
 # contains shell-specific user customization
 
+# check yadm status
+# call this before p10k to avoid output issues
+yadm_status
+
 # enable p10k instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -59,6 +63,3 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "$terminfo[kcuu1]" up-line-or-beginning-search # Up
 bindkey "$terminfo[kcud1]" down-line-or-beginning-search # Down
-
-# check yadm status
-yadm_status
